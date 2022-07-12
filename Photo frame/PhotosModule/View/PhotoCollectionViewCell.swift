@@ -35,7 +35,7 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func configure() {
-        photoImageView.image = UIImage(systemName: "person")
+    func configure(with image: UIImage) {
+        photoImageView.image = image
     }
 }

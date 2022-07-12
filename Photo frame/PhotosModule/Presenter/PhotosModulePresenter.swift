@@ -1,3 +1,4 @@
+import UIKit
 protocol PhotosModuleInput: AnyObject {
     
 }
@@ -12,13 +13,20 @@ final class PhotosModulePresenter {
         didSet {}
     }
     
+    var photos: [UIImage] = []
     let output: PhotosModuleOutput
     
-    required init(output: PhotosModuleOutput) {
+    required init(output: PhotosModuleOutput, photos: [UIImage]) {
         self.output = output
+        self.photos = photos
     }
 }
 
 extension PhotosModulePresenter: PhotosModuleInput {}
 
-extension PhotosModulePresenter: PhotosModuleViewOutput {}
+extension PhotosModulePresenter: PhotosModuleViewOutput {
+    func getPhotos() -> [UIImage] {
+        return photos
+    }
+    
+}

@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 final class PhotosModuleBuilder {
     let viewController: PhotosModuleViewController
     private let presenter: PhotosModulePresenter
@@ -9,9 +10,10 @@ final class PhotosModuleBuilder {
         presenter
     }
 
-    init(output: PhotosModuleOutput) {
+    init(output: PhotosModuleOutput, photos: [UIImage]) {
         presenter = PhotosModulePresenter(
-            output: output
+            output: output,
+            photos: photos
         )
         viewController = PhotosModuleViewController(output: presenter)
         presenter.view = viewController
